@@ -18,205 +18,270 @@
       background: linear-gradient(135deg, #8b0000, #c4002f, #ff758c);
       overflow-x: hidden;
       overflow-y: auto;
+      position: relative;
       padding: 24px 14px 40px;
-      visibility: hidden;
     }
 
     .wrap {
       width: 100%;
       max-width: 500px;
       margin: 0 auto;
+      position: relative;
+      z-index: 2;
     }
 
     .container {
-      background: rgba(15,15,20,0.96);
+      width: 100%;
+      background: rgba(15, 15, 20, 0.96);
       color: white;
       padding: 24px 18px;
       border-radius: 24px;
       text-align: center;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28);
       margin-top: 40px;
+      animation: fadeIn 0.5s ease;
     }
 
     h1 {
       color: #ff5c7a;
+      font-size: 2rem;
       margin-bottom: 14px;
     }
 
     h2 {
       color: #ff5c7a;
-      margin: 18px 0;
+      font-size: 1.7rem;
+      margin: 18px 0 16px;
+      line-height: 1.3;
     }
 
     p {
       color: #e7e7e7;
+      font-size: 1.2rem;
       line-height: 1.8;
       margin-bottom: 18px;
+      word-wrap: break-word;
+    }
+
+    #typing {
+      min-height: 70px;
     }
 
     button {
       width: 100%;
       border: none;
       border-radius: 999px;
-      background: #ff3d68;
+      background: linear-gradient(90deg, #d1002f, #ff3d68);
       color: white;
-      padding: 14px;
-      font-size: 16px;
-      margin-top: 10px;
+      padding: 15px 18px;
+      font-size: 1.1rem;
+      font-weight: 600;
       cursor: pointer;
+      transition: 0.25s;
+      margin-top: 12px;
+      box-shadow: 0 8px 20px rgba(255, 61, 104, 0.35);
+    }
+
+    button:hover,
+    button:active {
+      transform: scale(1.02);
+    }
+
+    .image-box {
+      margin-top: 14px;
+      width: 100%;
+      overflow: hidden;
+      border-radius: 18px;
+      background: #222;
     }
 
     img {
       width: 100%;
-      border-radius: 15px;
-      margin-top: 15px;
+      height: auto;
+      display: block;
+      object-fit: contain;
     }
 
     .hidden {
       display: none;
     }
 
-    /* popup */
-    #popup {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.85);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-    }
-
-    .popup-box {
-      background: #111;
-      padding: 25px;
-      border-radius: 20px;
-      text-align: center;
-      width: 90%;
-      max-width: 320px;
-      color: white;
-    }
-
     .heart {
       position: fixed;
-      top: -20px;
-      font-size: 24px;
+      top: -30px;
+      font-size: 28px;
       animation: fall linear forwards;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.9;
     }
 
     @keyframes fall {
-      to {
-        transform: translateY(110vh);
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.9;
+      }
+      100% {
+        transform: translateY(115vh) scale(1.2);
         opacity: 0;
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 18px 12px 32px;
+      }
+
+      .container {
+        padding: 22px 16px;
+        border-radius: 22px;
+        margin-top: 28px;
+      }
+
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      p {
+        font-size: 1.05rem;
+        line-height: 1.75;
+      }
+
+      button {
+        font-size: 1rem;
+        padding: 14px 16px;
+      }
+
+      .heart {
+        font-size: 24px;
       }
     }
   </style>
 </head>
-
 <body>
 
-<!-- POPUP -->
-<div id="popup">
-  <div class="popup-box">
-    <h2>⚠️ Perhatian</h2>
-    <p>Website ini ada suara ya 🎵<br>jangan kaget 😆</p>
-    <button onclick="mulaiWeb()">Lanjut 💖</button>
-  </div>
-</div>
+  <div class="wrap">
+    <!-- HALAMAN 1 -->
+    <div id="halaman1" class="container">
+      <h1>Hai Kamu 💗</h1>
+      <p id="typing"></p>
+      <button onclick="lanjut()">Klik ini ya 🥺👉👈</button>
+    </div>
 
-<div class="wrap">
+    <!-- HALAMAN 2 -->
+    <div id="halaman2" class="container hidden">
+      <p>
+        Aku tahu, aku sering kali membuat kamu kecewa, sedih dan membuat kamu terpuruk,
+        maka dari itu aku bener-bener meminta maaf ya sayangku...
+      </p>
 
-  <!-- HALAMAN 1 -->
-  <div id="halaman1" class="container">
-    <h1>Hai Kamu 💗</h1>
-    <p id="typing"></p>
-    <button onclick="lanjut()">Klik ini ya 🥺👉👈</button>
-  </div>
+      <p>
+        Kamu benar-benar sangat berarti bagi aku, jangan menghilang seperti ini dong 😔😔😔....
+      </p>
 
-  <!-- HALAMAN 2 -->
-  <div id="halaman2" class="container hidden">
-    <p>
-      Aku tahu aku sering bikin kamu kecewa 😔  
-      Aku minta maaf ya...
-    </p>
+      <h2>Maafin aku ya Cantik 😔💗</h2>
 
-    <p>
-      Kamu sangat berarti buat aku 💖  
-      Jangan menghilang ya...
-    </p>
+      <div class="image-box">
+        <img src="foto.jpg" alt="Foto untuk kamu">
+      </div>
 
-    <h2>Maafin aku ya 😔💗</h2>
+      <button onclick="bahagia()">Iya Aku Maafkan 💖</button>
+    </div>
 
-    <img src="foto.jpg">
+    <!-- HALAMAN 3 -->
+    <div id="halaman3" class="container hidden">
+      <h1>YEAYYYYYYY 🎉</h1>
+      <h2>YIPPY YIPPY YIPPY 🥳💖</h2>
 
-    <button onclick="bahagia()">Iya Aku Maafkan 💖</button>
-  </div>
-
-  <!-- HALAMAN 3 -->
-  <div id="halaman3" class="container hidden">
-    <h1>YEAYYYYYYY 🎉</h1>
-    <h2>YIPPY YIPPY YIPPY 🥳💖</h2>
-
-    <img src="happy.gif">
+      <div class="image-box">
+        <img src="happy.gif" alt="Happy GIF">
+      </div>
+    </div>
   </div>
 
-</div>
+  <!-- AUDIO SEDIH -->
+  <audio id="lagu" loop>
+    <source src="lagu.mp3" type="audio/mpeg">
+  </audio>
 
-<!-- AUDIO -->
-<audio id="lagu" loop>
-  <source src="lagu.mp3">
-</audio>
+  <!-- AUDIO SENANG -->
+  <audio id="laguSenang" loop>
+    <source src="happy.mp3" type="audio/mpeg">
+  </audio>
 
-<audio id="happy" loop>
-  <source src="happy.mp3">
-</audio>
+  <script>
+    let text = "Aku punya sesuatu yang ingin aku bilang ke kamu...";
+    let i = 0;
 
-<script>
-  function mulaiWeb() {
-    document.getElementById("popup").style.display = "none";
-    document.body.style.visibility = "visible";
-  }
-
-  let text = "Aku punya sesuatu yang ingin aku bilang ke kamu...";
-  let i = 0;
-
-  function ketik() {
-    if (i < text.length) {
-      document.getElementById("typing").innerHTML += text.charAt(i);
-      i++;
-      setTimeout(ketik, 100);
+    function ketik() {
+      if (i < text.length) {
+        document.getElementById("typing").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(ketik, 40);
+      }
     }
-  }
-  ketik();
 
-  function lanjut() {
-    document.getElementById("halaman1").classList.add("hidden");
-    document.getElementById("halaman2").classList.remove("hidden");
+    ketik();
 
-    document.getElementById("lagu").play();
-  }
+    function lanjut() {
+      document.getElementById("halaman1").classList.add("hidden");
+      document.getElementById("halaman2").classList.remove("hidden");
 
-  function bahagia() {
-    document.getElementById("halaman2").classList.add("hidden");
-    document.getElementById("halaman3").classList.remove("hidden");
+      const lagu = document.getElementById("lagu");
+      lagu.play().catch(() => {});
 
-    document.getElementById("lagu").pause();
-    document.getElementById("happy").play();
-  }
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    }
 
-  setInterval(() => {
-    let heart = document.createElement("div");
-    heart.className = "heart";
-    heart.innerHTML = "💗";
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.animationDuration = (Math.random()*3+2)+"s";
-    document.body.appendChild(heart);
+    function bahagia() {
+      document.getElementById("halaman2").classList.add("hidden");
+      document.getElementById("halaman3").classList.remove("hidden");
 
-    setTimeout(() => heart.remove(), 5000);
-  }, 400);
-</script>
+      const laguSedih = document.getElementById("lagu");
+      const laguSenang = document.getElementById("laguSenang");
+
+      laguSedih.pause();
+      laguSedih.currentTime = 0;
+
+      laguSenang.play().catch(() => {});
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    }
+
+    setInterval(() => {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.innerHTML = "💗";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 6500);
+    }, 500);
+  </script>
 
 </body>
 </html>
