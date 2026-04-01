@@ -1,217 +1,211 @@
-```html
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Untuk Kamu ❤️</title>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
 
-<title>Untuk Kamu ❤️</title>
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 20px 15px 40px;
+      overflow-x: hidden;
+      overflow-y: auto;
+      position: relative;
+    }
 
-<style>
+    .container {
+      width: 100%;
+      max-width: 380px;
+      background: white;
+      padding: 24px 20px;
+      border-radius: 25px;
+      text-align: center;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+      margin-top: 20px;
+      z-index: 2;
+    }
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Segoe UI',sans-serif;
-}
+    h1 {
+      color: #ff4d6d;
+      margin-bottom: 15px;
+      font-size: 28px;
+    }
 
-body{
+    h2 {
+      color: #ff4d6d;
+      margin-top: 10px;
+      margin-bottom: 15px;
+      font-size: 24px;
+    }
 
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-background:linear-gradient(135deg,#ff9a9e,#fad0c4);
-overflow:hidden;
+    p {
+      color: #444;
+      line-height: 1.7;
+      margin-bottom: 15px;
+      font-size: 16px;
+      word-break: break-word;
+    }
 
-}
+    button {
+      padding: 14px;
+      border: none;
+      border-radius: 30px;
+      background: #ff4d6d;
+      color: white;
+      font-size: 16px;
+      width: 100%;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-top: 10px;
+    }
 
-.container{
+    button:hover {
+      transform: scale(1.03);
+      background: #ff1f4b;
+    }
 
-width:90%;
-max-width:380px;
-background:white;
-padding:30px;
-border-radius:25px;
-text-align:center;
-box-shadow:0 15px 40px rgba(0,0,0,0.25);
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 15px;
+      margin-top: 15px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      object-fit: contain;
+    }
 
-}
+    .hidden {
+      display: none;
+    }
 
-h1{
-color:#ff4d6d;
-margin-bottom:15px;
-}
+    .heart {
+      position: fixed;
+      top: -10px;
+      font-size: 20px;
+      animation: fall linear forwards;
+      z-index: 1;
+      pointer-events: none;
+    }
 
-p{
-color:#444;
-line-height:1.6;
-margin-bottom:15px;
-}
+    @keyframes fall {
+      to {
+        transform: translateY(110vh);
+        opacity: 0;
+      }
+    }
 
-button{
+    @media (max-width: 480px) {
+      .container {
+        padding: 22px 16px;
+        border-radius: 20px;
+      }
 
-padding:12px;
-border:none;
-border-radius:30px;
-background:#ff4d6d;
-color:white;
-font-size:16px;
-width:100%;
-cursor:pointer;
-transition:0.3s;
+      h1 {
+        font-size: 24px;
+      }
 
-}
+      h2 {
+        font-size: 20px;
+      }
 
-button:hover{
-transform:scale(1.05);
-background:#ff1f4b;
-}
+      p {
+        font-size: 15px;
+      }
 
-img{
-
-width:100%;
-border-radius:15px;
-margin-top:15px;
-box-shadow:0 10px 25px rgba(0,0,0,0.2);
-
-}
-
-.hidden{
-display:none;
-}
-
-/* animasi hati */
-
-.heart{
-
-position:fixed;
-top:-10px;
-font-size:20px;
-animation:fall linear forwards;
-
-}
-
-@keyframes fall{
-
-to{
-transform:translateY(110vh);
-opacity:0;
-}
-
-}
-
-</style>
-
+      button {
+        font-size: 15px;
+        padding: 13px;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<!-- HALAMAN 1 -->
+  <!-- HALAMAN 1 -->
+  <div id="halaman1" class="container">
+    <h1>Hai Kamu ❤️</h1>
+    <p id="typing"></p>
+    <button onclick="lanjut()">Klik ini ya 🥺👉👈</button>
+  </div>
 
-<div id="halaman1" class="container">
+  <!-- HALAMAN 2 -->
+  <div id="halaman2" class="container hidden">
+    <p>
+      Aku tahu, aku sering kali membuat kamu kecewa, sedih dan membuat kamu
+      terpuruk, maka dari itu aku bener-bener meminta maaf ya sayangku...
+    </p>
 
-<h1>Hai Kamu ❤️</h1>
+    <p>
+      Kamu benar-benar sangat berarti bagi aku, jangan menghilang seperti ini dong 😔😔😔
+    </p>
 
-<p id="typing"></p>
+    <h2>Maafin aku ya Cantik 😔❤️</h2>
 
-<button onclick="lanjut()">Klik ini ya 🥺👉👈</button>
+    <img src="foto.jpg" alt="Foto untuk kamu" />
+  </div>
 
-</div>
+  <!-- LAGU -->
+  <audio id="lagu" loop>
+    <source src="lagu.mp3" type="audio/mpeg" />
+  </audio>
 
-<!-- HALAMAN 2 -->
+  <script>
+    // efek mengetik
+    let text = "Aku punya sesuatu yang ingin aku bilang ke kamu...";
+    let i = 0;
 
-<div id="halaman2" class="container hidden">
+    function ketik() {
+      if (i < text.length) {
+        document.getElementById("typing").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(ketik, 10);
+      }
+    }
 
-<p>
+    ketik();
 
-Aku tahu, aku sering kali membuat kamu kecewa, sedih dan membuat kamu terpuruk, maka dari itu aku bener bener meminta maaf ya sayangku...
+    // pindah halaman
+    function lanjut() {
+      document.getElementById("halaman1").classList.add("hidden");
+      document.getElementById("halaman2").classList.remove("hidden");
 
-</p>
+      const lagu = document.getElementById("lagu");
+      lagu.play().catch(() => {
+        console.log("Autoplay diblokir browser. User perlu interaksi dulu.");
+      });
 
-<p>
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    }
 
-Kamu benar benar sangat berarti bagi aku, jangan menghilang menghilang seperti ini dong 😔😔😔....
+    // animasi hati
+    setInterval(() => {
+      let heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.innerHTML = "❤️";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
+      document.body.appendChild(heart);
 
-</p>
-
-<h2 style="color:#ff4d6d;">Maafin aku ya Cantik 😔❤️</h2>
-
-<img src="foto.jpg">
-
-</div>
-
-<!-- LAGU -->
-
-<audio id="lagu" loop>
-<source src="lagu.mp3" type="audio/mpeg">
-</audio>
-
-<script>
-
-/* efek mengetik */
-
-let text="Aku punya sesuatu yang ingin aku bilang ke kamu...";
-let i=0;
-
-function ketik(){
-
-if(i<text.length){
-
-document.getElementById("typing").innerHTML+=text.charAt(i);
-
-i++;
-
-setTimeout(ketik,40);
-
-}
-
-}
-
-ketik();
-
-/* pindah halaman */
-
-function lanjut(){
-
-document.getElementById("halaman1").style.display="none";
-
-document.getElementById("halaman2").classList.remove("hidden");
-
-document.getElementById("lagu").play();
-
-}
-
-/* animasi hati */
-
-setInterval(()=>{
-
-let heart=document.createElement("div");
-
-heart.classList.add("heart");
-
-heart.innerHTML="❤️";
-
-heart.style.left=Math.random()*100+"vw";
-
-heart.style.animationDuration=(Math.random()*3+2)+"s";
-
-document.body.appendChild(heart);
-
-setTimeout(()=>{
-
-heart.remove();
-
-},5000);
-
-},350);
-
-</script>
+      setTimeout(() => {
+        heart.remove();
+      }, 5000);
+    }, 350);
+  </script>
 
 </body>
-
 </html>
-```
