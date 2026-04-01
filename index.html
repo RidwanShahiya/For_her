@@ -39,6 +39,7 @@
       text-align: center;
       box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28);
       margin-top: 40px;
+      animation: fadeIn 0.5s ease;
     }
 
     h1 {
@@ -73,11 +74,11 @@
       background: linear-gradient(90deg, #d1002f, #ff3d68);
       color: white;
       padding: 15px 18px;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       font-weight: 600;
       cursor: pointer;
       transition: 0.25s;
-      margin-top: 8px;
+      margin-top: 12px;
       box-shadow: 0 8px 20px rgba(255, 61, 104, 0.35);
     }
 
@@ -126,6 +127,17 @@
       }
     }
 
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     @media (max-width: 480px) {
       body {
         padding: 18px 12px 32px;
@@ -151,7 +163,7 @@
       }
 
       button {
-        font-size: 1.05rem;
+        font-size: 1rem;
         padding: 14px 16px;
       }
 
@@ -179,21 +191,37 @@
       </p>
 
       <p>
-        Kamu benar-benar sangat berarti bagi aku, jangan menghilang seperti ini dong 😔😔
+        Kamu benar-benar sangat berarti bagi aku, jangan menghilang seperti ini dong 😔😔😔....
       </p>
 
-      <h2>Maafin aku ya Cantik</h2>
-      </p>
-      <h2>😔💗</h2>
+      <h2>Maafin aku ya Cantik 😔💗</h2>
+
       <div class="image-box">
         <img src="foto.jpg" alt="Foto untuk kamu">
+      </div>
+
+      <button onclick="bahagia()">Iya Aku Maafkan 💖</button>
+    </div>
+
+    <!-- HALAMAN 3 -->
+    <div id="halaman3" class="container hidden">
+      <h1>YEAYYYYYYY 🎉</h1>
+      <h2>YIPPY YIPPY YIPPY 🥳💖</h2>
+
+      <div class="image-box">
+        <img src="happy.gif" alt="Happy GIF">
       </div>
     </div>
   </div>
 
-  <!-- LAGU -->
+  <!-- AUDIO SEDIH -->
   <audio id="lagu" loop>
     <source src="lagu.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- AUDIO SENANG -->
+  <audio id="laguSenang" loop>
+    <source src="happy.mp3" type="audio/mpeg">
   </audio>
 
   <script>
@@ -204,7 +232,7 @@
       if (i < text.length) {
         document.getElementById("typing").innerHTML += text.charAt(i);
         i++;
-        setTimeout(ketik, 5);
+        setTimeout(ketik, 40);
       }
     }
 
@@ -216,6 +244,24 @@
 
       const lagu = document.getElementById("lagu");
       lagu.play().catch(() => {});
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    }
+
+    function bahagia() {
+      document.getElementById("halaman2").classList.add("hidden");
+      document.getElementById("halaman3").classList.remove("hidden");
+
+      const laguSedih = document.getElementById("lagu");
+      const laguSenang = document.getElementById("laguSenang");
+
+      laguSedih.pause();
+      laguSedih.currentTime = 0;
+
+      laguSenang.play().catch(() => {});
 
       window.scrollTo({
         top: 0,
