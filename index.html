@@ -1,8 +1,22 @@
+
+2. Layout masih terlalu sempit di tengah, jadi di HP terlihat banyak ruang kosong kiri-kanan.
+
+Di bawah ini saya kasih versi yang sudah saya rapikan lagi:
+- full rapi di HP
+- bisa scroll ke bawah
+- foto tidak terpotong
+- card lebih pas di layar mobile
+- hati tetap jalan tapi tidak merusak layout
+
+**Salin isi ini saja ke file `index.html`**
+**tanpa menambahkan ` ```html ` atau ` ``` `**
+
+```html
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Untuk Kamu ❤️</title>
 
   <style>
@@ -15,74 +29,89 @@
 
     body {
       min-height: 100vh;
-      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      padding: 20px 15px 40px;
+      background: linear-gradient(135deg, #8b0000, #c4002f, #ff758c);
       overflow-x: hidden;
       overflow-y: auto;
       position: relative;
+      padding: 24px 14px 40px;
+    }
+
+    .wrap {
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
     }
 
     .container {
       width: 100%;
-      max-width: 380px;
-      background: white;
-      padding: 24px 20px;
-      border-radius: 25px;
+      background: rgba(15, 15, 20, 0.96);
+      color: white;
+      padding: 24px 18px;
+      border-radius: 24px;
       text-align: center;
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
-      margin-top: 20px;
-      z-index: 2;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28);
+      margin-top: 40px;
     }
 
     h1 {
-      color: #ff4d6d;
-      margin-bottom: 15px;
-      font-size: 28px;
+      color: #ff5c7a;
+      font-size: 2rem;
+      margin-bottom: 14px;
     }
 
     h2 {
-      color: #ff4d6d;
-      margin-top: 10px;
-      margin-bottom: 15px;
-      font-size: 24px;
+      color: #ff5c7a;
+      font-size: 1.7rem;
+      margin: 18px 0 16px;
+      line-height: 1.3;
     }
 
     p {
-      color: #444;
-      line-height: 1.7;
-      margin-bottom: 15px;
-      font-size: 16px;
-      word-break: break-word;
+      color: #e7e7e7;
+      font-size: 1.2rem;
+      line-height: 1.8;
+      margin-bottom: 18px;
+      word-wrap: break-word;
+    }
+
+    #typing {
+      min-height: 70px;
     }
 
     button {
-      padding: 14px;
-      border: none;
-      border-radius: 30px;
-      background: #ff4d6d;
-      color: white;
-      font-size: 16px;
       width: 100%;
+      border: none;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #d1002f, #ff3d68);
+      color: white;
+      padding: 15px 18px;
+      font-size: 1.2rem;
+      font-weight: 600;
       cursor: pointer;
-      transition: 0.3s;
-      margin-top: 10px;
+      transition: 0.25s;
+      margin-top: 8px;
+      box-shadow: 0 8px 20px rgba(255, 61, 104, 0.35);
     }
 
-    button:hover {
-      transform: scale(1.03);
-      background: #ff1f4b;
+    button:hover,
+    button:active {
+      transform: scale(1.02);
+    }
+
+    .image-box {
+      margin-top: 14px;
+      width: 100%;
+      overflow: hidden;
+      border-radius: 18px;
+      background: #222;
     }
 
     img {
       width: 100%;
       height: auto;
       display: block;
-      border-radius: 15px;
-      margin-top: 15px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
       object-fit: contain;
     }
 
@@ -92,77 +121,96 @@
 
     .heart {
       position: fixed;
-      top: -10px;
-      font-size: 20px;
+      top: -30px;
+      font-size: 28px;
       animation: fall linear forwards;
-      z-index: 1;
       pointer-events: none;
+      z-index: 1;
+      opacity: 0.9;
     }
 
     @keyframes fall {
-      to {
-        transform: translateY(110vh);
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.9;
+      }
+      100% {
+        transform: translateY(115vh) scale(1.2);
         opacity: 0;
       }
     }
 
     @media (max-width: 480px) {
+      body {
+        padding: 18px 12px 32px;
+      }
+
       .container {
         padding: 22px 16px;
-        border-radius: 20px;
+        border-radius: 22px;
+        margin-top: 28px;
       }
 
       h1 {
-        font-size: 24px;
+        font-size: 1.8rem;
       }
 
       h2 {
-        font-size: 20px;
+        font-size: 1.5rem;
       }
 
       p {
-        font-size: 15px;
+        font-size: 1.05rem;
+        line-height: 1.75;
       }
 
       button {
-        font-size: 15px;
-        padding: 13px;
+        font-size: 1.05rem;
+        padding: 14px 16px;
+      }
+
+      .heart {
+        font-size: 24px;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- HALAMAN 1 -->
-  <div id="halaman1" class="container">
-    <h1>Hai Kamu ❤️</h1>
-    <p id="typing"></p>
-    <button onclick="lanjut()">Klik ini ya 🥺👉👈</button>
-  </div>
+  <div class="wrap">
+    <!-- HALAMAN 1 -->
+    <div id="halaman1" class="container">
+      <h1>Hai Kamu 💗</h1>
+      <p id="typing"></p>
+      <button onclick="lanjut()">Klik ini ya 🥺👉👈</button>
+    </div>
 
-  <!-- HALAMAN 2 -->
-  <div id="halaman2" class="container hidden">
-    <p>
-      Aku tahu, aku sering kali membuat kamu kecewa, sedih dan membuat kamu
-      terpuruk, maka dari itu aku bener-bener meminta maaf ya sayangku...
-    </p>
+    <!-- HALAMAN 2 -->
+    <div id="halaman2" class="container hidden">
+      <p>
+        Aku tahu, aku sering kali membuat kamu kecewa, sedih dan membuat kamu terpuruk,
+        maka dari itu aku bener-bener meminta maaf ya sayangku...
+      </p>
 
-    <p>
-      Kamu benar-benar sangat berarti bagi aku, jangan menghilang seperti ini dong 😔😔😔
-    </p>
+      <p>
+        Kamu benar-benar sangat berarti bagi aku, jangan menghilang seperti ini dong 😔😔😔....
+      </p>
 
-    <h2>Maafin aku ya Cantik 😔❤️</h2>
-
-    <img src="foto.jpg" alt="Foto untuk kamu" />
+      <h2>Maafin aku ya Cantik</h2>
+      </p>
+      <h2>😔💗</h2>
+      <div class="image-box">
+        <img src="foto.jpg" alt="Foto untuk kamu">
+      </div>
+    </div>
   </div>
 
   <!-- LAGU -->
   <audio id="lagu" loop>
-    <source src="lagu.mp3" type="audio/mpeg" />
+    <source src="lagu.mp3" type="audio/mpeg">
   </audio>
 
   <script>
-    // efek mengetik
     let text = "Aku punya sesuatu yang ingin aku bilang ke kamu...";
     let i = 0;
 
@@ -170,21 +218,18 @@
       if (i < text.length) {
         document.getElementById("typing").innerHTML += text.charAt(i);
         i++;
-        setTimeout(ketik, 10);
+        setTimeout(ketik, 5);
       }
     }
 
     ketik();
 
-    // pindah halaman
     function lanjut() {
       document.getElementById("halaman1").classList.add("hidden");
       document.getElementById("halaman2").classList.remove("hidden");
 
       const lagu = document.getElementById("lagu");
-      lagu.play().catch(() => {
-        console.log("Autoplay diblokir browser. User perlu interaksi dulu.");
-      });
+      lagu.play().catch(() => {});
 
       window.scrollTo({
         top: 0,
@@ -192,19 +237,18 @@
       });
     }
 
-    // animasi hati
     setInterval(() => {
-      let heart = document.createElement("div");
-      heart.classList.add("heart");
-      heart.innerHTML = "❤️";
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.innerHTML = "💗";
       heart.style.left = Math.random() * 100 + "vw";
-      heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
+      heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
       document.body.appendChild(heart);
 
       setTimeout(() => {
         heart.remove();
-      }, 5000);
-    }, 350);
+      }, 6500);
+    }, 500);
   </script>
 
 </body>
